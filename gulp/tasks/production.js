@@ -14,7 +14,7 @@ gulp.task('uglify-js', ['browserify'], function()
     .pipe(size());
 });
 
-gulp.task('minify-css', ['sass'], function() 
+gulp.task('minify-css', function() 
 {
   return gulp.src(config.css.src)
     .pipe(minifyCSS({keepBreaks:true}))

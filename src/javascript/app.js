@@ -1,12 +1,14 @@
-// include different backbone view files
-var homeView = require('./includes/home');
+var $ = require('jquery-browserify'),
+    home = require('./includes/home');
 
 var app = {
+
+  documentWindow: $(window),
+  modalBtn: $('#modal-btn'),
     
-    start: function()
-    {
-        var home = new homeView();
-    },
+  init: function() {
+  },
+
 }
 
-app.start();
+$(document).ready( app.init() );

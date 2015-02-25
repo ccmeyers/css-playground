@@ -1,0 +1,126 @@
+.home {
+
+  .one {
+
+    .left {
+      @include span-columns(6);
+    }
+
+    .right {
+      @include span-columns(6);
+      text-align: center;
+      padding: 10% 0;
+
+      a {
+        text-decoration: none;
+        padding: 20px;
+        border: 1px solid blue;
+      }
+    }
+
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity: 0;
+    @include transition(opacity 400ms ease-in);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &-inner {
+      position: relative;
+      background-color: #fff;
+      padding: 50px;
+      width: 500px;
+      margin: 10% auto;
+
+      .morph-shape {
+        position: absolute;
+        width: 504px;
+        height: calc(100% + 4px);
+        top: -2px;
+        left: -2px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .change-color {
+
+    .blob {
+      fill: red;
+
+    }
+
+    &:hover {
+
+      .blob {
+        fill: blue;
+      }
+
+    }
+
+  }
+
+  .dash {
+
+    .blob {
+      fill: white;
+      stroke: blue;
+      stroke-dasharray: 20;
+      stroke-width: 10px;
+    }
+
+  }
+
+  .move {
+    fill: white;
+    stroke: blue;
+    stroke-dasharray: 20;
+    @include animation(dash 15s linear infinite);
+  }
+
+  .draw {
+
+    #draw-go {
+      fill: white;
+      stroke: blue;
+      stroke-dasharray: 2577.05;
+      stroke-dashoffset: 2577.05;
+      animation: drawing 10s ease-out infinite;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .rectangle {
+    rect {
+      stroke: red;
+      stroke-width: 10px;
+      stroke-dasharray: 1165;
+      stroke-dashoffset: 1165;
+      animation: drawing 2s ease-out infinite;
+      animation-fill-mode: forwards;
+    }
+  }
+
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 2577.05;
+  }
+}
+
+@keyframes drawing {
+  to { stroke-dashoffset: 0;}
+}

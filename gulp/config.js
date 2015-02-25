@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   sass: {
-    src: src + '/sass/*.{sass,scss}',
+    src: src + '/sass/**/*.{sass,scss}',
     dest: dest + '/assets/css',
     settings: {
       imagePath: 'images', // Used by the image-url helper
@@ -42,7 +42,7 @@ module.exports = {
       dest: dest + '/assets/js',
       outputName: 'app.js',
       // list of externally available modules to exclude from the bundle
-      external: ['jquery', 'underscore']
+      external: ['underscore']
     }]
   },
   production: {
